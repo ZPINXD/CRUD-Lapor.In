@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width-device-width, initial-scale=1.0">
+  <title> Aduan Masyarakat </title>
+  <link rel="stylesheet" type="text/css" href="">
+</head>
+<body>
+  <form id="formaduan">
+    <h2>Formulir Aduan</h2>
+
+    <div class="form-group">
+      <label for="nama">Nama Lengkap</label>
+      <span class="separator">:</span>
+      <input type="text" id="nama" name="nama" required>
+    </div>
+
+    <div class="form-group">
+      <label for="alamat">Alamat kejadian</label>
+      <span class="separator">:</span>
+      <input type="text" id="alamat" name="alamat" required>
+    </div>
+
+    <div class="form-group">
+        <label for="tglLahir">Tanggal kejadian</label>
+        <span class="separator">:</span>
+        <input type="date" id="tglkejadian" name="tglkejadian" required>
+      </div>
+
+    <div class="form-group">
+      <label for="tptLahir">Aduan Kejadian</label>
+      <span class="separator">:</span>
+      <input type="text" id="adukejadian" name="adukejadian" required>
+    </div>
+
+    <div class="form-group">
+      <label>Apakah nama anda ingin ditammpikan?</label>
+      <span class="separator">:</span>
+      <div class="radio-group">
+        <input type="radio" name="jk" value="anon" required> Anonymous
+        <input type="radio" name="jk" value="public" required> Public
+      </div>
+    </div>
+    <input type="submit" value="Daftar">
+  </form>
+
+  <script>
+    function validasiNama(){
+      let inputNama = document.getElementById("nama").value;
+      let pola = /^[a-zA-Z']+$/;
+
+      if (!pola.test(inputNama)){
+        alert("Nama hanya boleh berisi huruf dan tanda petik satu (')")
+        return false;
+      }
+      alert("Nama valid!");
+      return true;
+    }
+
+  </script>
+</body>
+</html>

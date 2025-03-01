@@ -2,45 +2,54 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width-device-width, initial-scale=1.0">
-  <title> Aduan Masyarakat </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aduan Masyarakat</title>
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-
 <body>
+  <header>
+  
+    <div class="header-background">
+     
+    </div>
+  </header>
+
   <form id="formaduan">
+    
+
     <h2>Lapor.In</h2> 
+
+    <input type="hidden" id="editIndex" value=""> <!-- Untuk melacak baris yang sedang diedit -->
 
     <div class="form-group">
       <label for="nama">Nama Lengkap</label>
       <span class="separator">:</span>
-      <input type="text" id="nama" name="nama" required>
+      <input type="text" id="nama" name="nama" required placeholder="Masukkan nama lengkap Anda">
     </div>
 
     <div class="form-group">
       <label for="alamat">Alamat kejadian</label>
       <span class="separator">:</span>
-      <input type="text" id="alamat" name="alamat" required>
+      <input type="text" id="alamat" name="alamat" required placeholder="Masukkan lokasi kejadian">
     </div>
 
     <div class="form-group">
-        <label for="tglLahir">Tanggal kejadian</label>
-        <span class="separator">:</span>
-        <input type="date" id="tglkejadian" name="tglkejadian" required>
-      </div>
-
-    <div class="form-group">
-      <label for="tptLahir">Aduan Kejadian</label>
+      <label for="tglkejadian">Tanggal kejadian</label>
       <span class="separator">:</span>
-      <input type="text" id="adukejadian" name="adukejadian" required>
+      <input type="date" id="tglkejadian" name="tglkejadian" required placeholder="Masukkan tanggal kejadian">
     </div>
 
     <div class="form-group">
-      <label for="buktikejadian">Bukti Kejadian</label>
+      <label for="adukejadian">Aduan Kejadian</label>
       <span class="separator">:</span>
-      <input type="file" id="myfile" name="myfile" required>
+      <input type="text" id="adukejadian" name="adukejadian" required placeholder="Masukkan aduan">
     </div>
 
+    <div class="form-group">
+      <label for="myfile">Bukti Kejadian</label>
+      <span class="separator">:</span>
+      <input type="file" id="myfile" name="myfile">
+    </div>
 
     <div class="form-group">
       <label>Ingin menampilkan nama?</label>
@@ -49,109 +58,29 @@
         <input type="radio" name="jk" value="anon" required> Anonymous
         <input type="radio" name="jk" value="public" required> Public
       </div>
-
     </div>
-    <input type="submit" value="Submit">
-    <!-- <script src="file.js"></script> -->
-    
-    <script>
-      document.getElementById("formaduan").addEventListener("submit", function (event) {
-    event.preventDefault(); // Mencegah reload halaman
 
-    // Ambil data dari form
-    let nama = document.getElementById("nama").value.trim();
-    let alamat = document.getElementById("alamat").value.trim();
-    let tglkejadian = document.getElementById("tglkejadian").value;
-    let adukejadian = document.getElementById("adukejadian").value.trim();
-    let fileInput = document.getElementById("myfile");
-    let anonim = document.querySelector('input[name="jk"]:checked') ? document.querySelector('input[name="jk"]:checked').value : "";
-
-    // Validasi sederhana agar tidak ada input kosong
-    if (nama === "" || alamat === "" || tglkejadian === "" || adukejadian === "" || anonim === "") {
-        alert("Harap isi semua kolom!");
-        return;
-    }
-
-    // Membaca file gambar (jika ada)
-    let filePreview = "";
-    if (fileInput.files && fileInput.files[0]) {
-        let reader = new FileReader();
-        reader.onload = function(e) {
-            filePreview = e.target.result;
-
-            // Tambahkan data ke tabel hasil
-            let tabel = document.getElementById("hasilTable").querySelector("tbody");
-            let newRow = tabel.insertRow();
-            newRow.innerHTML = `
-                <td>${anonim === "anon" ? "Anonymous" : nama}</td>
-                <td>${alamat}</td>
-                <td>${tglkejadian}</td>
-                <td>${adukejadian}</td>
-                <td><img src="${filePreview}" alt="Bukti Kejadian" style="width: 100px; height: auto;"></td>
-                <td>${anonim === "anon" ? "Anonymous" : "Public"}</td>
-            `;
-
-            // Reset form setelah submit
-            document.getElementById("formaduan").reset();
-        };
-        reader.readAsDataURL(fileInput.files[0]); // Membaca file gambar dan mengonversinya ke Data URL
-    } else {
-        // Jika tidak ada file gambar
-        let tabel = document.getElementById("hasilTable").querySelector("tbody");
-        let newRow = tabel.insertRow();
-        newRow.innerHTML = `
-            <td>${anonim === "anon" ? "Anonymous" : nama}</td>
-            <td>${alamat}</td>
-            <td>${tglkejadian}</td>
-            <td>${adukejadian}</td>
-            <td>Tidak ada file</td>
-            <td>${anonim === "anon" ? "Anonymous" : "Public"}</td>
-        `;
-
-        // Reset form setelah submit
-        document.getElementById("formaduan").reset();
-    }
-});
-
-
-    </script>
-<!-- <img src="${filePreview}" alt="Bukti Kejadian" style="width: 100px; height: auto;"> -->
-
-    
+    <input type="submit" value="Lapor">
   </form>
 
-  <!-- Tabel Hasil -->
-  <h2 class = "laporin">Hasil Inputan</h2>
+  <h2 class="laporin">Histori Laporan</h2>
   <table class="table1" id="hasilTable">
     <thead>
       <tr>
         <th>Nama</th>
         <th>Alamat</th>
         <th>Tanggal Kejadian</th>
-        <th>Lokasi Kejadian</th>
         <th>Aduan</th>
+        <th>Bukti</th>
         <th>Privasi</th>
+        <th>Action</th>
       </tr>
     </thead>
     <tbody></tbody>
   </table>
-
-  <!-- <script src="file.js"></script> -->
-</body>
-
-  <script>
-    function validasiNama(){
-      let inputNama = document.getElementById("nama").value;
-      let pola = /^[a-zA-Z']+$/;
-
-      if (!pola.test(inputNama)){
-        alert("Nama hanya boleh berisi huruf dan tanda petik satu (')")
-        return false;
-      }
-      alert("Nama valid!");
-      return true;
-    }
-
-  </script>
+  <script src="file.js"></script>
+  <!-- <script>
+    
+  </script> -->
 </body>
 </html>

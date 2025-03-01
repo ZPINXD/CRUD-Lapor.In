@@ -1,9 +1,10 @@
 h2{
-    color: #1d6093;
+    color: #000000;
 }
+
 body{
     font-family: sans-serif;
-    background-color: #f4f4f4;
+    background-color: #fffffffd;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -12,8 +13,16 @@ body{
     margin:0;  
 }
 
+/* header {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+} */
+
+
+
 #formaduan {
-    background: white;
+    background: rgb(255, 252, 252);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -21,6 +30,7 @@ body{
     display: grid;
     gap: 10px;
 }
+
 .laporin{
     margin-top: 50px;
 }
@@ -45,6 +55,38 @@ label {
     text-align: center;
 }
 
+.btn_action {
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px; 
+}
+
+.ubah {
+    background-color:#e2a61c;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.hapus {
+    background-color: red;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.ubah:hover {
+    background-color: #a9a026;
+}
+
+.hapus:hover {
+    background-color: darkred;
+}
+
 input[type="text"],
 input[type="date"] {
     margin-right: 10px;
@@ -66,7 +108,7 @@ input[type="radio"] {
 
 input[type="submit"] {
     width: 100%;
-    background: #1d6093;
+    background: #a90707;
     color: white;
     border: none;
     padding: 10px;
@@ -78,7 +120,7 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    background: #4a92ca;
+    background: #770c0c;
 }
 
 .table1 {
@@ -94,11 +136,14 @@ input[type="submit"]:hover {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: center;
+    word-wrap: break-word;
+        width: 400px; /* Atur lebar agar teks bisa turun ke bawah */
+
 }
 
 .table1 th {
-    background-color: #1d6093;
+    background-color: #a90707;
     font-size: 15px;
     text-align: center;
-    color: #ddd;
+    color: white;
 }

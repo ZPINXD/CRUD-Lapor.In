@@ -1,0 +1,104 @@
+h2{
+    color: #1d6093;
+}
+body{
+    font-family: sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items:center;
+    height: 100vh;
+    margin:0;  
+}
+
+#formaduan {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 1000px;
+    display: grid;
+    gap: 10px;
+}
+.laporin{
+    margin-top: 50px;
+}
+
+h2 {
+    text-align: center;
+}
+
+.form-group {
+    display: grid;
+    grid-template-columns: 200px 20px auto;
+    align-items: center;    
+    gap: 5px;
+}
+
+
+label {
+    font-weight: bold;
+}
+
+.separator {
+    text-align: center;
+}
+
+input[type="text"],
+input[type="date"] {
+    margin-right: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 95%; 
+}
+
+.radio-group {
+    display: flex;
+    gap: 10px;
+    flex-wrap: nowrap;
+}
+
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+input[type="submit"] {
+    width: 100%;
+    background: #1d6093;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+
+}
+
+input[type="submit"]:hover {
+    background: #4a92ca;
+}
+
+.table1 {
+    font-family: sans-serif;
+    color: #000000;
+    border-collapse: collapse;
+    width: 68%;
+    margin-top: 20px;
+}
+
+.table1 th, 
+.table1 td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.table1 th {
+    background-color: #1d6093;
+    font-size: 15px;
+    text-align: center;
+    color: #ddd;
+}
